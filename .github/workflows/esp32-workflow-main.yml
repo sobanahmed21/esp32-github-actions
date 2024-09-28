@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "main", "features-*"]
   pull_request:
     branches: [ "main" ]
 
@@ -26,6 +26,7 @@ jobs:
       - name: Clone main repo
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.ref }}
           submodules: 'recursive'
       
       - name: Espressif IoT Development Framework (ESP-IDF)
