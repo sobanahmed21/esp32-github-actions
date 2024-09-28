@@ -27,11 +27,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Super-linter
-        uses: super-linter/super-linter@v7.1.0 # x-release-please-version
-        env:
-          # To report GitHub Actions status checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Espressif IoT Development Framework (ESP-IDF)
       # You may pin to the exact commit or the version.
@@ -45,5 +40,5 @@ jobs:
           # ESP32 variant to build for
           target: esp32 # optional, default is esp32
           # Command to run inside the docker container (default: builds the project)
-          # command: # optional, default is idf.py build
+          command: idf.py build # optional, default is idf.py build
           
